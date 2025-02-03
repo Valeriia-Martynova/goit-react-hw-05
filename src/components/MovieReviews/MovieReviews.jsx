@@ -1,21 +1,28 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchMovieReviews } from "../../api";
+import toast from "react-hot-toast";
+import Loader from "../Loader/Loader";
 import s from "./MovieReviews.module.css";
 
 function MovieReviews() {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!movieId) return;
-
-    fetchMovieReviews(movieId).then(setReviews);
+    setLoading(true);
+    fetchMovieReviews(movieId)
+      .then(setReviews)
+      .catch(() => toast.error("Failed to load reviews"))
+      .finally(() => setLoading(false));
   }, [movieId]);
 
   return (
     <div className={s.container}>
       <h2>Reviews</h2>
+      {loading && <Loader />}
       {reviews.length > 0 ? (
         <ul>
           {reviews.map((review) => (

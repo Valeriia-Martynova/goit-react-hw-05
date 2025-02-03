@@ -1,21 +1,30 @@
 import { useEffect, useState, Suspense } from "react";
 import { useParams, Link, Outlet, useLocation } from "react-router-dom";
 import { fetchMovieDetails } from "../../api";
-import styles from "./MovieDetailsPage.module.css";
+import toast from "react-hot-toast";
+import Loader from "../../components/Loader/Loader";
+
+import s from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const location = useLocation();
   const [movie, setMovie] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetchMovieDetails(movieId).then(setMovie);
+    setLoading(true);
+    fetchMovieDetails(movieId)
+      .then(setMovie)
+      .catch(() => toast.error("Failed to load movie details"))
+      .finally(() => setLoading(false));
   }, [movieId]);
 
-  if (!movie) return <p>Loading...</p>;
+  if (loading) return <Loader />;
+  if (!movie) return null;
 
   return (
-    <div className={styles.details}>
+    <div className={s.details}>
       <Link to={location.state?.from ?? "/movies"}>Go back</Link>
       <h1>{movie.title}</h1>
       <img
@@ -27,7 +36,7 @@ const MovieDetailsPage = () => {
         <Link to="cast">Cast</Link>
         <Link to="reviews">Reviews</Link>
       </nav>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </div>
