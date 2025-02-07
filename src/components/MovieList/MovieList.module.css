@@ -23,3 +23,15 @@
 .list li:hover {
   transform: scale(1.05);
 }
+
+@media screen and (max-width: 768px) {
+  .list {
+    grid-template-columns: repeat(2, minmax(60px, 1fr));
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .list {
+    grid-template-columns: repeat(1, minmax(60px, 1fr));
+  }
+}
