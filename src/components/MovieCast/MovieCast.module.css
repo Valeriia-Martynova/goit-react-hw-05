@@ -1,0 +1,18 @@
+.movieList {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, minmax(60px, 1fr));
+  padding: 20px;
+}
+
+.movieList li {
+  display: flex;
+  gap: 20px;
+  border: 1px solid rgb(69, 55, 55);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.movieList img {
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}

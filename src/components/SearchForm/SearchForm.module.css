@@ -1,0 +1,36 @@
+.form {
+  width: 300px;
+  position: relative;
+  margin: 20px auto;
+}
+
+.input {
+  width: 250px;
+  padding: 10px;
+  border: 0.5px solid rgb(69, 55, 55);
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: transparent;
+  outline: none;
+}
+
+input:focus {
+  border-color: red;
+}
+
+.button {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  width: 50px;
+  height: 100%;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.87);
+  border: none;
+
+  cursor: pointer;
+}
+
+.button:hover {
+  color: red;
+}

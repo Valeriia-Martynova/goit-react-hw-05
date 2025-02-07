@@ -35,7 +35,6 @@ const MoviesPage = () => {
     <div className={s.container}>
       <SearchForm onSearch={handleSearch} initialQuery={query} />
       {loading && <Loader />}
-      {movies.length === 0 && query && !loading}
       <MovieList movies={movies} />
     </div>
   );

@@ -5,7 +5,8 @@ import toast from "react-hot-toast";
 import Loader from "../Loader/Loader";
 import s from "./MovieCast.module.css";
 
-const defaultImg = "https://via.placeholder.com/150";
+const defaultImg =
+  "<https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg>";
 
 function MovieCast() {
   const { movieId } = useParams();
@@ -22,10 +23,9 @@ function MovieCast() {
   }, [movieId]);
 
   return (
-    <div className={s.container}>
-      <h2>Cast</h2>
+    <div className={s.MovieCast}>
       {loading && <Loader />}
-      <ul>
+      <ul className={s.movieList}>
         {cast.map((actor) => (
           <li key={actor.id}>
             <img
@@ -37,7 +37,10 @@ function MovieCast() {
               alt={actor.name}
               width={100}
             />
-            <p>{actor.name}</p>
+            <div>
+              <p>Name:{actor.name}</p>
+              <p>Character: {actor.character}</p>
+            </div>
           </li>
         ))}
       </ul>

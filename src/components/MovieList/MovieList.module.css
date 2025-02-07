@@ -1,0 +1,25 @@
+.list {
+  padding: 20px;
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(4, minmax(60px, 1fr));
+}
+
+.list li {
+  display: block;
+  height: 100%;
+  border-radius: 8px;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.list img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.list li:hover {
+  transform: scale(1.05);
+}

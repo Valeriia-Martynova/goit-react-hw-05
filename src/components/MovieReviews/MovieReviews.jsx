@@ -21,10 +21,9 @@ function MovieReviews() {
 
   return (
     <div className={s.container}>
-      <h2>Reviews</h2>
       {loading && <Loader />}
       {reviews.length > 0 ? (
-        <ul>
+        <ul className={s.reviewList}>
           {reviews.map((review) => (
             <li key={review.id}>
               <h3>{review.author}</h3>

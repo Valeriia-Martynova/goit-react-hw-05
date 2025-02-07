@@ -1,0 +1,47 @@
+.goBack {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s;
+  margin: 30px auto;
+}
+
+.movieInfo {
+  display: flex;
+  gap: 30px;
+}
+.movieInfo img {
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.genresList {
+  display: flex;
+  gap: 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 10px;
+}
+.link {
+  display: flex;
+  gap: 5px;
+  text-decoration: none;
+  align-items: center;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.activeLink {
+  color: red;
+  transform: scale(1.1);
+  transition: transform 0.3s;
+}
+
+.link:hover {
+  color: red;
+}
