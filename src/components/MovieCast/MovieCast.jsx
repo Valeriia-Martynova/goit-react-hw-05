@@ -25,6 +25,7 @@ function MovieCast() {
   return (
     <div className={s.MovieCast}>
       {loading && <Loader />}
+      {cast.length === 0 && <p>No cast available.</p>}
       <ul className={s.movieList}>
         {cast.map((actor) => (
           <li key={actor.id}>
