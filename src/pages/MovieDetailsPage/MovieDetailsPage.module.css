@@ -45,3 +45,16 @@ nav {
 .link:hover {
   color: red;
 }
+
+@media screen and (max-width: 768px) {
+  .movieInfo {
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+    align-items: center;
+    padding: auto;
+  }
+  .movieInfoContent {
+    padding: 20px;
+  }
+}

@@ -56,7 +56,7 @@ const MovieDetailsPage = () => {
           alt={movie.title}
           width={250}
         />
-        <div>
+        <div className={s.movieInfoContent}>
           <h1>{movie.title}</h1>
           <p>User Score: {movie.vote_average * 10}%</p>
           <h2>Overview</h2>
